@@ -36,19 +36,19 @@ CREATE TABLE dept_manager (
 );
 
 create table titles (
-    emp_no int not null;
-    title varchar not null;
-    from_date date not null;
-    to_date date not null;
+    emp_no int not null,
+    title varchar not null,
+    from_date date not null,
+    to_date date not null,
     FOREIGN KEY (emp_no) REFERENCES employees (emp_no),
-    primary key (emp_no)
+    primary key (emp_no, title, from_date)
 );
 
 create table dept_emp(
-    emp_no int not null;
-    dept_no varchar(4) not null;
-    from_date date not null;
-    to_date date not null;
+    emp_no int not null,
+    dept_no varchar(4) not null,
+    from_date date not null,
+    to_date date not null,
     FOREIGN KEY (emp_no) REFERENCES employees (emp_no),
     FOREIGN KEY (dept_no) REFERENCES departments (dept_no),
     PRIMARY KEY (emp_no, dept_no)
