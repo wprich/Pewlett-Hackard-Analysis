@@ -27,3 +27,22 @@ into retiring_titles
 from unique_titles
 group by title
 order by count desc
+
+
+--Creating mentorship eligibilty table
+select distinct on(e.emp_no) e.emp_no,
+    e.first_name,
+    e.last_name,
+	e.birth_date,
+	de.from_date,
+	de.to_date,
+	ti.title
+into mentorship_eligibilty
+from employees as e
+left join dept_emp as de
+on e.emp_no = de.emp_no
+left join titles as ti
+on ti.emp_no = e.emp_no
+where de.to_date = ('9999-01-01')
+and (e.birth_date between '1965-01-01' AND '1965-12-31')
+order by e.emp_no asc
