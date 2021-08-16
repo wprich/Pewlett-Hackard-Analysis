@@ -61,7 +61,7 @@ from employees as e
 left join dept_emp as de
 on e.emp_no = de.emp_no
 left join titles as ti
-on ti.emp_no = ce.emp_no
+on ti.emp_no = e.emp_no
 where de.to_date = ('9999-01-01')
 and (e.birth_date between '1965-01-01' AND '1965-12-31')
 order by e.emp_no asc
@@ -69,7 +69,21 @@ order by e.emp_no asc
   
    ![alt text](https://github.com/wprich/Pewlett-Hackard-Analysis/blob/main/Resources%20-%20Pictures/possible_mentors.png)
     
-  As you can see, the criteria for being a mentor is more stringent than just being able to retire.  The client asked that only people eligible for retirement and only born in the year of 1965 be considered and added to the list.  The total number of mentors is 1549, total number of rows minus the header.  This is a big difference from the total number of retiring employees.  1549 mentors over 33118 retirees.  More analysis will have to be done to see if only 1549 mentors would be feasible for the rest of the work force to get mentored by them.  This'll also be done in the summary as well.
+  As you can see, the criteria for being a mentor is more stringent than just being able to retire.  The client asked that only people eligible for retirement and only born in the year of 1965 be considered and added to the list.  The total number of mentors is 1549, total number of rows minus the header.  This is a big difference from the total number of retiring employees.  1549 mentors over 90938 retirees.  More analysis will have to be done to see if only 1549 mentors would be feasible for the rest of the work force to get mentored by them.  This'll also be done in the summary as well.
   
+  
+## Summary
 
+  This project was a very good experience with SQL and all its functionalities.  Whether it be querying the data, joining tables, or import/exporting the data to make it more managable and easy to use.  The biggest question the client had was what was the total number of positions that would need to be filled when the "silver tsunami" starts to take effect.  This was answered above.  The total number of employees that would need to be replaced is 90,938.  Upon getting the total number of employees currently employed:
   
+  ![alt text](https://github.com/wprich/Pewlett-Hackard-Analysis/blob/main/Resources%20-%20Pictures/total_current_employees.png)
+  
+  https://github.com/wprich/Pewlett-Hackard-Analysis/blob/main/Resources%20-%20Pictures/total_current_employees.png
+  
+  We can see that the "silver tsunami" will impact a 37.9% chunk of the workforce for the client.  With over a third of their workforce about to possibly enter retirement, it would be recommended that their human resources department start conducting interviews to either see if those employees plan to retire sooner or later and also think about finding qualified replacements.  
+  
+  Another question the client had was there enough qualified, retirement ready mentors for the next generation of workers for them.  If we subtract the number of retirees from the number of current employees, we are at 149,186 employees remaining.  If we take this figure and divide them among the mentors we found in results, we have a ratio of 1 mentor for every 97 employees.  This does not seem feasible given that each mentor would have nearly 100 employees to mentor.  One suggestion may be that the senior staff be on call during certain hours of the day for the new/current employees to send questions to.  This can be done entirely electronically or in office during certain days/times.  Another possible solution would be loosening the constraints on being a mentor.  If you could have some employees be nearly retirement ready but still available to guide and lead the new/current employees, it would increase their availability.  Just by expanding the mentor criteria by 2 years, to include retirees whose birthday is in 1963 and 1964, not just 1965, we get get a considerable amount of more retirees available to mentor.
+  
+  ![alt text](https://github.com/wprich/Pewlett-Hackard-Analysis/blob/main/Resources%20-%20Pictures/new_mentor_list.png)
+  
+  https://github.com/wprich/Pewlett-Hackard-Analysis/blob/main/Resources%20-%20Pictures/new_mentor_list.png
