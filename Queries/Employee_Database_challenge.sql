@@ -43,7 +43,7 @@ from employees as e
 left join dept_emp as de
 on e.emp_no = de.emp_no
 left join titles as ti
-on ti.emp_no = ce.emp_no
+on ti.emp_no = e.emp_no
 where de.to_date = ('9999-01-01')
 and (e.birth_date between '1965-01-01' AND '1965-12-31')
 order by e.emp_no asc
