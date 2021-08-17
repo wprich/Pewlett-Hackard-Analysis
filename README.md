@@ -51,9 +51,9 @@ This was then sorted to the specifications set forth by the client.  By doing th
 
 https://github.com/wprich/Pewlett-Hackard-Analysis/blob/main/Data/current_emp.csv
 
-This gives the client a good idea of how many and what type of positions to fill.  But we can do a better job and give them even more concise numbers.
+This gives the client a good idea of how many and what type of positions to fill.
 
-  * The last chart needed for this part of the project involved getting all the titles together into one concise file and a number of many were retiring with that job title.  
+  * The last chart needed for this part of the project involved getting all the titles together into one concise file.  
   ~~~
   --Retirement count by job title
 select count(emp_no), title
@@ -66,7 +66,7 @@ order by count desc
 
 https://github.com/wprich/Pewlett-Hackard-Analysis/blob/main/Data/retiring_titles.csv
 	
-   Doing some simple calculations, we can see that 63.8% of the senior staff are either "Senior Engineer" or "Senior Staff", the biggest being engineer by about 1200.  This will be a big loss in terms of experience and leadership for the client when these employees retire.  Therefore the client came to us with another query on their data, find certain employees who might be interested in a mentorship program.  This means the retired employee would come back to work, part time, and guide/train the new hires and pass on their wisdom and experience.  This would also ease the client to phasing from a more seasoned work pool to a more fresh one.  
+   Doing some simple calculations, we can see that 63.8% of the senior staff are either "Senior Engineer" or "Senior Staff", the biggest being engineer by about 1200.  This will be a big loss in terms of experience and leadership for the client when these employees retire. However, this list does not show the actual employees who are retiring, just the job titles held by the employees who were born between 1952 and 1955.  There would need to be a more specific query to get the job titles of only the employees who will be retiring.  The client then came to us with another query on their data, find certain employees who might be interested in a mentorship program.  This means the retired employee would come back to work, part time, and guide/train the new hires and pass on their wisdom and experience.  This would also ease the client to phasing from a more seasoned work pool to a more fresh one.  
 
   * The next step was to get the number of employees eligible for the mentorship program.  This was done using the "distinct on" method as well as numerous joins in the same query.
   ~~~
@@ -91,7 +91,7 @@ order by e.emp_no asc
   
    ![alt text](https://github.com/wprich/Pewlett-Hackard-Analysis/blob/main/Resources%20-%20Pictures/possible_mentors.png)
     
-  As you can see, the criteria for being a mentor is more stringent than just being able to retire.  The client asked that only people eligible for retirement and only born in the year of 1965 be considered and added to the list.  The total number of mentors is 1549, total number of rows minus the header.  This is a big difference from the total number of retiring employees.  1549 mentors over 33118 retirees.  More analysis will have to be done to see if only 1549 mentors would be feasible for the rest of the work force to get mentored by them.  This'll also be done in the summary as well.
+  As you can see, the criteria for being a mentor is more stringent than just being able to retire.  The client asked that only people eligible for retirement and only born in the year of 1965 be considered and added to the list.  The total number of mentors is 1549, total number of rows minus the header.  This is a big difference from the total number of retiring employees.  1549 mentors over 33118 retirees.  More analysis will have to be done to see if only 1549 mentors would be feasible for the rest of the work force to get mentored by them.  Also, this list of mentors doesn't actually have any of the retirees on it, only employees who were born in 1965.  Since our retirees query was done on employees born in 1952 to 1955 and were employeed between 1985 to 1988, they cannot be considered to be mentors based on this information.
   
   
 ## Summary
@@ -104,7 +104,7 @@ order by e.emp_no asc
   
   We can see that the "silver tsunami" will impact a 13.8% chunk of the workforce for the client.  With over a tenth of their workforce about to possibly enter retirement, it would be recommended that their human resources department start conducting interviews to either see if those employees plan to retire sooner or later and also think about finding qualified replacements.  
   
-  Another question the client had was there enough qualified, retirement ready mentors for the next generation of workers for them.  If we subtract the number of retirees from the number of current employees, we are at 207,006 employees remaining.  If we take this figure and divide them among the mentors we found in results, we have a ratio of 1 mentor for every 134 employees.  This does not seem feasible given that each mentor would have over 100 employees to mentor.  One suggestion may be that the senior staff be on call during certain hours of the day for the new/current employees to send questions to.  This can be done entirely electronically or in office during certain days/times.  Another possible solution would be loosening the constraints on being a mentor.  If you could have some employees be nearly retirement ready but still available to guide and lead the new/current employees, it would increase their availability.  Just by expanding the mentor criteria by 2 years, to include retirees whose birthday is in 1963 and 1964, not just 1965, we get get a considerable amount of more retirees available to mentor.
+  Another question the client had was there enough qualified, retirement ready mentors for the next generation of workers for them.  If we subtract the number of retirees from the number of current employees, we are at 207,006 employees remaining.  If we take this figure and divide them among the mentors we found in results, we have a ratio of 1 mentor for every 134 employees.  This does not seem feasible given that each mentor would have over 100 employees to mentor.  One suggestion  would be to actually have the retirees be in the pool to be considered mentors.  Another suggestion may be that the senior staff be on call during certain hours of the day for the new/current employees to send questions to.  This can be done entirely electronically or in office during certain days/times.  Another possible solution would be loosening the constraints on being a mentor.  If you could have some employees be nearly retirement ready but still available to guide and lead the new/current employees, it would increase their availability.  Just by expanding the mentor criteria by 2 years, to include retirees whose birthday is in 1963 and 1964, not just 1965, we get get a considerable amount of more retirees available to mentor.
   
   ![alt text](https://github.com/wprich/Pewlett-Hackard-Analysis/blob/main/Resources%20-%20Pictures/new_mentor_list.png)
   
